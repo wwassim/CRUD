@@ -9,7 +9,7 @@ const Home = () => {
         axios.get("http://localhost:3000/users")
         .then((res)=>res.data)
         .then((result)=>setData(result))
-        .catch(err=>console.log("error->",err))
+        .catch(err=>console.log("error->",err.message))
     },[])
   
   return (
@@ -62,11 +62,10 @@ const Home = () => {
                 <td className='flex space-x-4 items-center '>
                     <Link to={`/page-details/${element.id}`} className='border border-blue-700 text-blue-700 px-4 py-2 rounded-xl'>Read</Link>
                     <Link to={`/update/${element.id}`} className='border border-green-700 text-green-700 px-4 py-2 rounded-xl'>Update</Link>
-                    <Link to='/'className='border border-red-700 text-red-700 px-4 py-2 rounded-xl' >Delete</Link>
                 </td>
             </tr>
             ))}
-            
+
         </tbody>
       </table>
       </div>
